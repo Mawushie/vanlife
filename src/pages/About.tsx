@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
+import bgImg from "../assets/about-hero.png";
 export default function About() {
   return (
     <div>
-      <img src="about-hero.png" alt="hero-image" className="w-full bg-cover" />
+      <img src={bgImg} alt="hero-image" className="w-full bg-cover" />
       <div className=" px-6 py-12 bg-orange-50">
         <h2 className="font-bold text-3xl mb-8">
           Don’t squeeze in a sedan when you could relax in a van.
