@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 export default function About() {
   return (
     <div>
       <img src="about-hero.png" alt="hero-image" className="w-full bg-cover" />
-      <div className=" px-6 py-12">
+      <div className=" px-6 py-12 bg-orange-50">
         <h2 className="font-bold text-3xl mb-8">
           Don’t squeeze in a sedan when you could relax in a van.
         </h2>
-        <p className="mb-14">
+        <p className="mb-14 text-slate-950">
           Our mission is to enliven your road trip with the perfect travel van
           rental. Our vans are recertified before each trip to ensure your
           travel plans can go off without a hitch. (Hitch costs extra 😉)
@@ -14,13 +16,16 @@ export default function About() {
           firsthand the magic of touring the world on 4 wheels.
         </p>
 
-        <div className="h-52 px-8 py-9 border-transparent rounded bg-orange-200">
+        <div className=" px-8 py-9 border-transparent rounded bg-orange-200">
           <p className="font-bold text-2xl text-black mb-6">
             Your destination is waiting. <br></br>Your van is ready.
           </p>
-          <button className="h-12 px-6 py-3 border-transparent bg-black text-white rounded-lg">
+          <Link
+            to="vans"
+            className="inline-block text-center cursor-pointer  px-6 py-3  bg-black text-white rounded-lg font-bold"
+          >
             Explore our vans
-          </button>
+          </Link>
         </div>
       </div>
     </div>
