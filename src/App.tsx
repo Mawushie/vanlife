@@ -6,6 +6,7 @@ import Vans from "./pages/Vans";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "../server";
+import VanDetail from "./pages/VanDetail";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>

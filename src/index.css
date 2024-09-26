@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   /* color-scheme: light dark; */
   font-synthesis: none;
@@ -6,6 +9,34 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.home-container {
+  background: url("./assets/bghome.png");
+}
+
+.van-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ffead0;
+  border: black;
+}
+
+.van-type.simple {
+  background: #e17654;
+}
+
+.van-type.rugged {
+  background: #115e59;
+}
+
+.van-type.luxury {
+  background: #161616;
+}
+
+.van-price > span {
+  font-size: 16;
+  font-weight: normal;
+}

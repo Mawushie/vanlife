@@ -14,12 +14,11 @@ export default function Vans() {
       });
   }, []);
 
-  const vanElements = vans
-    ? vans.map((van) => {
-        // console.log(van);
-        return <VanCard van={van} key={van.id} />;
-      })
-    : null;
+  const vanElements = vans?.map((van) => {
+    // console.log(van);
+    return <VanCard van={van} key={van.id} />;
+  });
+
   return (
     <main className="p-6">
       <h1 className="font-bold text-3xl"> Explore our van options</h1>
