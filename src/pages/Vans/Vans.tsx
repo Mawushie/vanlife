@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import VanCard from "../components/VanCard";
-import { Van } from "../components/vanInterface";
+import { Van } from "../../components/vanInterface";
+import VanCard from "../../components/VanCard";
 
 export default function Vans() {
   const [vans, setVans] = useState<[Van]>();

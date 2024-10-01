@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Van } from "../components/vanInterface";
+import { Van } from "../../components/vanInterface";
 
 export default function VanDetail() {
   const [van, setVan] = useState<Van>();
@@ -28,7 +28,7 @@ export default function VanDetail() {
             </p>
             <p>{van.description}</p>
 
-            <div className="text-white bg-orange-400 w-full text-center items-center rounded p-2 font-bold">
+            <div className="text-white bg-orange-400 w-full text-center items-center rounded p-2 font-bold cursor-pointer">
               Rent this van
             </div>
           </div>
