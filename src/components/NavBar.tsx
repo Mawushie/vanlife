@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -7,11 +7,24 @@ export default function NavBar() {
         #VANLIFE
       </Link>
       <nav className="flex gap-3">
-        <Link to="host">Host</Link>
-        <Link to="about" className="active:underline ">
+        <NavLink
+          to="host"
+          className={({ isActive }) => (isActive ? "active-style" : "")}
+        >
+          Host
+        </NavLink>
+        <NavLink
+          to="about"
+          className={({ isActive }) => (isActive ? "active-style" : "")}
+        >
           About
-        </Link>
-        <Link to="vans">Vans</Link>
+        </NavLink>
+        <NavLink
+          to="vans"
+          className={({ isActive }) => (isActive ? "active-style" : "")}
+        >
+          Vans
+        </NavLink>
       </nav>
     </header>
   );
