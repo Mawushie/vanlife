@@ -15,13 +15,13 @@ export default function HostVans() {
   const vanListElements = vanlist ? (
     vanlist.map((van) => (
       <Link to={`/host/vans/${van.id}`} key={van.id}>
-        <div className="flex gap-4 h-28 px-6 py-4 bg-white rounded">
+        <div className="flex gap-4 h-28 px-6 py-4 bg-white rounded  ">
           <img
             src={van.imageUrl}
             alt={`Image of ${van.name} van`}
             className="rounded"
           />
-          <div>
+          <div className="flex flex-col justify-center">
             <h2 className="font-semibold text-xl">{van.name}</h2>
             <p>${van.price}/day</p>
           </div>
