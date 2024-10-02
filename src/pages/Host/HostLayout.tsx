@@ -10,26 +10,26 @@ export default function HostLayout() {
     <div className=" bg-orange-50 p-7">
       <nav className="flex gap-7 host-nav">
         <NavLink
-          to="/host"
+          to="."
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           end
         >
           Dashboard
         </NavLink>
         <NavLink
-          to="/host/income"
+          to="income"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           Income
         </NavLink>
         <NavLink
-          to="/host/vans"
+          to="vans"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           Vans
         </NavLink>
         <NavLink
-          to="/host/reviews"
+          to="reviews"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           Reviews
