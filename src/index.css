@@ -2,23 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-  /* color-scheme: light dark; */
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #fff7ed;
+    /* color-scheme: light dark; */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #fff7ed;
 }
 
 .home-container {
-  background: url("./assets/bghome.png");
+    background: url("./assets/bghome.png");
 }
 
 .active-style {
-  font-weight: bold;
-  text-decoration: underline;
-  color: #161616;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #161616;
 }
+
 
 /* .main-nav a:hover,
 .host-nav a:hover {
@@ -28,30 +29,58 @@
 } */
 
 .van-type {
-  display: inline-block;
-
-  padding: 4px 12px;
-  border-radius: 5px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: capitalize;
-  color: #ffead0;
-  border: black;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    color: #ffead0;
+    border: black;
 }
 
 .van-type.simple {
-  background: #e17654;
+    background: #e17654;
+    color: #ffead0;
 }
 
 .van-type.rugged {
-  background: #115e59;
+    background: #115e59;
+    color: #ffead0;
 }
 
 .van-type.luxury {
-  background: #161616;
+    background: #161616;
 }
 
-.van-price > span {
-  font-size: 16;
-  font-weight: normal;
+.van-price>span {
+    font-size: 16;
+    font-weight: normal;
+}
+
+.filters {
+    height: 37px;
+    padding: 8px 20px;
+    background-color: #ffead0;
+    color: #4d4d4d;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.filters.simple:hover,
+.filters.simple.selected {
+    background: #e17654;
+    color: #ffead0;
+}
+
+.filters.rugged:hover,
+.filters.rugged.selected {
+    background: #115e59;
+    color: #ffead0;
+}
+
+.filters.luxury:hover,
+.filters.luxury.selected {
+    background: #161616;
+    color: #ffead0;
 }

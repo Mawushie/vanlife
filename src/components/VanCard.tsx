@@ -13,7 +13,7 @@ export default function VanCard({ van }: Props) {
   return (
     <div className="w-full">
       <Link
-        to={`/vans/${id}`}
+        to={id}
         aria-label={`View details for ${name} at $${price} per day`}
       >
         <div className="mb-1 w-full">

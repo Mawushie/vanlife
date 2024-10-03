@@ -10,8 +10,8 @@ export default function HostVanInfo() {
         <p>
           <span className="font-bold">Name :</span> {currentVan?.name}{" "}
         </p>
-        <p>
-          <span className="font-bold">Category :</span> {currentVan?.type}{" "}
+        <p className="capitalize">
+          <span className="font-bold ">Category :</span> {currentVan?.type}{" "}
         </p>
         <p>
           <span className="font-bold">Description :</span>{" "}
