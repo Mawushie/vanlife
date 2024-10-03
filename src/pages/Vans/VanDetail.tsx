@@ -7,7 +7,7 @@ export default function VanDetail() {
   const params = useParams();
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)

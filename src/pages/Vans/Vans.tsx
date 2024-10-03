@@ -2,18 +2,28 @@ import { useEffect, useState } from "react";
 import { Van } from "../../components/vanInterface";
 import VanCard from "../../components/VanCard";
 import { useSearchParams } from "react-router-dom";
+import { getVans } from "../../../api";
 
 export default function Vans() {
   const [vans, setVans] = useState<[Van]>();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
   let typeFilter = searchParams.get("type");
 
+  //calling the getVans function in our useEffect with an async function
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => {
-        setVans(data.vans);
-      });
+    // fetch("/api/vans")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setVans(data.vans);
+    //   });
+    const loadVans = async () => {
+      setLoading(true);
+      const data = await getVans();
+      setVans(data);
+      setLoading(false);
+    };
+    loadVans();
   }, []);
   const displayedVans = typeFilter
     ? vans?.filter((van) => van.type === typeFilter)
@@ -40,6 +50,10 @@ export default function Vans() {
       return prevParams;
     });
   };
+
+  if (loading) {
+    return <h1>Loading....</h1>;
+  }
   return (
     <main className="p-6">
       <h1 className="font-bold text-3xl"> Explore our van options</h1>
