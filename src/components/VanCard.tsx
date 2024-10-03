@@ -3,17 +3,22 @@ import { Van } from "./vanInterface";
 
 //interface for props
 //receiving a prop called van which has interface(type) of the vanInterface
+//receiving searchParams as props too
 interface Props {
   van: Van;
+  searchParams: string;
+  vanType: string | null;
 }
 
-export default function VanCard({ van }: Props) {
+export default function VanCard({ van, searchParams, vanType }: Props) {
   const { imageUrl, name, price, type, id } = van;
+  // console.log(searchParams);
 
   return (
     <div className="w-full">
       <Link
         to={id}
+        state={{ searchParams: searchParams, vanType: vanType }}
         aria-label={`View details for ${name} at $${price} per day`}
       >
         <div className="mb-1 w-full">

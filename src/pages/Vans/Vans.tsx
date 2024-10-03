@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Van } from "../../components/vanInterface";
 import VanCard from "../../components/VanCard";
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function Vans() {
   const [vans, setVans] = useState<[Van]>();
@@ -20,7 +20,14 @@ export default function Vans() {
     : vans;
 
   const vanElements = displayedVans?.map((van) => {
-    return <VanCard van={van} key={van.id} />;
+    return (
+      <VanCard
+        van={van}
+        key={van.id}
+        searchParams={`?${searchParams.toString()}`}
+        vanType={typeFilter}
+      />
+    );
   });
 
   const handleFilterChange = (key: string, value: string | null) => {
