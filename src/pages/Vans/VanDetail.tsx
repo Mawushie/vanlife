@@ -20,15 +20,12 @@ export default function VanDetail() {
 
   //checking for whether there is a state passed
   const searchParams = location.state?.searchParams || "";
+  const type = location.state?.vanType || "all";
 
   return (
     <div className="p-6 mt-9">
       <Link to={`..${searchParams}`} relative="path">
-        &larr;{" "}
-        <span className="underline">
-          {" "}
-          Back to {`${location.state.vanType}`} vans
-        </span>
+        &larr; <span className="underline"> Back to {type} vans</span>
       </Link>
       {van ? (
         <div className="mt-9">
