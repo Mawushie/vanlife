@@ -8,23 +8,43 @@ export default function Vans() {
   const [vans, setVans] = useState<[Van]>();
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  //getting the filter type in the url parameter
   let typeFilter = searchParams.get("type");
 
   //calling the getVans function in our useEffect with an async function
   useEffect(() => {
-    // fetch("/api/vans")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setVans(data.vans);
-    //   });
     const loadVans = async () => {
       setLoading(true);
-      const data = await getVans();
-      setVans(data);
-      setLoading(false);
+      try {
+        const data = await getVans();
+        // console.log(data);
+        setVans(data);
+      } catch (err: any) {
+        setError(err.message || "Something went  wrong");
+      } finally {
+        setLoading(false);
+      }
     };
     loadVans();
   }, []);
+
+  //function that handles setting the url parameters to include the search params
+  const handleFilterChange = (key: string, value: string | null) => {
+    setSearchParams((prevParams) => {
+      //if no filter, delete the type key from the params
+      //else, set the search params with key and value
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  };
+
+  //this is used to display the filtered vans based on the search parameters
   const displayedVans = typeFilter
     ? vans?.filter((van) => van.type === typeFilter)
     : vans;
@@ -40,19 +60,12 @@ export default function Vans() {
     );
   });
 
-  const handleFilterChange = (key: string, value: string | null) => {
-    setSearchParams((prevParams) => {
-      if (value === null) {
-        prevParams.delete(key);
-      } else {
-        prevParams.set(key, value);
-      }
-      return prevParams;
-    });
-  };
-
   if (loading) {
-    return <h1>Loading....</h1>;
+    //aria-live to indicate to the screen reader to announce changes in the DOM
+    return <h1 aria-live="polite">Loading....</h1>;
+  }
+  if (error) {
+    return <h1 aria-live="assertive"> There was an error: {error}</h1>;
   }
   return (
     <main className="p-6">
