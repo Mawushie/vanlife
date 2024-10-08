@@ -1,34 +1,22 @@
-import { useEffect, useState } from "react";
 import { Van } from "../../components/vanInterface";
 import VanCard from "../../components/VanCard";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../../../api";
 
+//creating our loader function here to get the vans
+export const loader = () => {
+  return getVans();
+};
+
 export default function Vans() {
-  const [vans, setVans] = useState<[Van]>();
+  //variable vans to store the data coming from the useLoaderData hook
+  //using as Van[] is to tell typescript that the vans being
+  //returned will  be an arran of interface Van
+  const vans = useLoaderData() as Van[];
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   //getting the filter type in the url parameter
   let typeFilter = searchParams.get("type");
-
-  //calling the getVans function in our useEffect with an async function
-  useEffect(() => {
-    const loadVans = async () => {
-      setLoading(true);
-      try {
-        const data = await getVans();
-        // console.log(data);
-        setVans(data);
-      } catch (err: any) {
-        setError(err.message || "Something went  wrong");
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadVans();
-  }, []);
 
   //function that handles setting the url parameters to include the search params
   const handleFilterChange = (key: string, value: string | null) => {
@@ -60,13 +48,13 @@ export default function Vans() {
     );
   });
 
-  if (loading) {
-    //aria-live to indicate to the screen reader to announce changes in the DOM
-    return <h1 aria-live="polite">Loading....</h1>;
-  }
-  if (error) {
-    return <h1 aria-live="assertive"> There was an error: {error}</h1>;
-  }
+  // if (loading) {
+  //   //aria-live to indicate to the screen reader to announce changes in the DOM
+  //   return <h1 aria-live="polite">Loading....</h1>;
+  // }
+  // if (error) {
+  //   return <h1 aria-live="assertive"> There was an error: {error}</h1>;
+  // }
   return (
     <main className="p-6">
       <h1 className="font-bold text-3xl"> Explore our van options</h1>
